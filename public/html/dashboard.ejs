@@ -86,7 +86,6 @@
                                                                         <input
                                                                             class="btn btn-lg btn-primary grow-button"
                                                                             type="submit" value="Log in">
-                                                                            type="guest" value="Guest?">
                                                                     </div>
                                                                 </form>
                                                                 <form method="post" action="/player/growid/login/validate" accept-charset="UTF-8" id="registerForm" class="hidden mt-3">
@@ -139,22 +138,10 @@
         
         $('.error-message').remove();
         
-        if (!growId || !password) {
-            e.preventDefault();
-            
-            $('<div class="error-message text-center text-danger">Please enter both GrowID and Password</div>')
-                .insertAfter('form[action="/player/growid/login/validate"] .form-group:last-child');
-        }
-    });
-    $("a").click(function () { if (clicked === false) { clicked = true; return true; } $(this).attr("onclick", "return false;"); });
-    $('form[action="/player/growid/login/validate"]').on('guest', e => {
-        const growId = $('input[name="growId"]').val().trim();
-        $('.error-message').remove();
-        
         if (!growId) {
             e.preventDefault();
             
-            $('<div class="error-message text-center text-danger">You must enter your username for login using guest account!/div>')
+            $('<div class="error-message text-center text-danger">Please enter both GrowID and Password</div>')
                 .insertAfter('form[action="/player/growid/login/validate"] .form-group:last-child');
         }
     });
